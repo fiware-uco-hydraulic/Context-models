@@ -13,7 +13,7 @@
     "Devices": "fiware:Devices",
     "Female": "schema:Female",
     "Male": "schema:Male",
-    "Person": "fiware:Person",
+    "Person": "schema:Person",
     "address": "fiware:address",
     "alternateName": "fiware:alternateName",
     "area": "fiware:area",
