@@ -133,7 +133,9 @@
     "serialNumber": "fiware:serialNumber",
     "softwareVersion": "fiware:softwareVersion",
     "soilMoistureEC": "fiware:soilMoistureEC",
-    "soilMoistureVwc": "fiware:soilMoistureVwc",
+    "soilMoistureVwcLevel1": "fiware:soilMoistureVwcLevel1",
+    "soilMoistureVwcLevel2": "fiware:soilMoistureVwcLevel2",
+    "soilMoistureVwcLevel3": "fiware:soilMoistureVwcLevel3",
     "soilSalinity": "fiware:soilSalinity",
     "soilTemperature": "fiware:soilTemperature",
     "solarRadiaton": "fiware:solarRadiaton",
@@ -343,3 +345,4 @@
     }
   ]
 }
+
