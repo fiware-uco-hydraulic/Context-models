@@ -19,7 +19,10 @@
     "area": "fiware:area",
     "areaServed": "fiware:areaServed",
     "atmosphericPressure": "fiware:atmosphericPressure",
-    "batteryLevel": "fiware:batteryLevel",
+    "batteryLevel": {
+      "@id": "fiware:batteryLevel",
+      "@type": "xsd:number"
+    },
     "belongsTo": {
       "@id": "fiware:belongsTo",
       "@type": "@id"
@@ -133,15 +136,27 @@
     "serialNumber": "fiware:serialNumber",
     "softwareVersion": "fiware:softwareVersion",
     "soilMoistureEC": "fiware:soilMoistureEC",
-    "soilMoistureVwcLevel1": "fiware:soilMoistureVwcLevel1",
-    "soilMoistureVwcLevel2": "fiware:soilMoistureVwcLevel2",
-    "soilMoistureVwcLevel3": "fiware:soilMoistureVwcLevel3",
+    "soilMoistureVwcLevel1": {
+      "@id": "fiware:soilMoistureVwcLevel1",
+      "@type": "xsd:number"
+    }, 
+    "soilMoistureVwcLevel2": {
+      "@id": "fiware:soilMoistureVwcLevel2",
+      "@type": "xsd:number"
+    },
+    "soilMoistureVwcLevel3": {
+      "@id": "fiware:soilMoistureVwcLevel3",
+      "@type": "xsd:number"
+    },
     "soilSalinity": "fiware:soilSalinity",
     "soilTemperature": "fiware:soilTemperature",
     "solarRadiaton": "fiware:solarRadiaton",
     "source": "fiware:source",
     "supportedProtocol": "fiware:supportedProtocol",
-    "value": "fiware:value"
+    "value": {
+      "@id": "fiware:value",
+      "@type": "xsd:string"
+    }
   },
   "@graph": [
     {
@@ -345,4 +360,3 @@
     }
   ]
 }
-
