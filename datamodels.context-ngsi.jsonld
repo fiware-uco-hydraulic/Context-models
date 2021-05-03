@@ -1,90 +1,366 @@
 {
-    "@context": {
-        "type": "@type",
-        "id": "@id",
-        "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
-        "fiware": "https://uri.fiware.org/ns/data-models#",
-        "schema": "https://schema.org/",
-        "AgriFarm": "fiware:AgriFarm",
-        "AgriParcel": "fiware:AgriParcel",
-        "AgriParcelRecord": "fiware:AgriParcelRecord",
-        "Devices": "fiware:Devices",
-        "Female": "schema:Female",
-        "Male": "schema:Male",
-        "Person": "fiware:Person",
-        "address": "fiware:address",
-        "alternateName": "fiware:alternateName",
-        "area": "fiware:area",
-        "areaServed": "fiware:areaServed",
-        "atmosphericPressure": "fiware:atmosphericPressure",
-        "batteryLevel": "fiware:batteryLevel",
-        "belongsTo": "fiware:belongsTo",
-        "category": "fiware:category",
-        "configuration": "fiware:configuration",
-        "contactPoint": "fiware:contactPoint",
-        "controlledAsset": "fiware:controlledAsset",
-        "controlledProperty": "fiware:controlledProperty",
-        "cropStatus": "fiware:cropStatus",
-        "dataProvider": "fiware:dataProvider",
-        "dateCreated": "fiware:dateCreated",
-        "dateFirstUsed": "fiware:dateFirstUsed",
-        "dateInstalled": "fiware:dateInstalled",
-        "dateLastCalibration": "fiware:dateLastCalibration",
-        "dateLastValueReported": "fiware:dateLastValueReported",
-        "dateManufactured": "fiware:dateManufactured",
-        "dateModified": "fiware:dateModified",
-        "depth": "fiware:depth",
-        "description": "fiware:description",
-        "deviceState": "fiware:deviceState",
-        "direction": "fiware:direction",
-        "distance": "fiware:distance",
-        "dstAware": "fiware:dstAware",
-        "firmwareVersion": "fiware:firmwareVersion",
-        "hardwareVersion": "fiware:hardwareVersion",
-        "hasAgriCrop": "fiware:hasAgriCrop",
-        "hasAgriFarm": "fiware:hasAgriFarm",
-        "hasAgriParcel": "fiware:hasAgriParcel",
-        "hasAgriParcelChildren": "fiware:hasAgriParcelChildren",
-        "hasAgriParcelParent": "fiware:hasAgriParcelParent",
-        "hasAgriSoil": "fiware:hasAgriSoil",
-        "hasBuilding": "fiware:hasBuilding",
-        "hasDevice": "fiware:hasDevice",
-        "hasDevices": "fiware:hasDevices",
-        "ipAddress": "fiware:ipAddress",
-        "landLocation": "fiware:landLocation",
-        "lastPlantedAt": "fiware:lastPlantedAt",
-        "leafRelativeHumidity": "fiware:leafRelativeHumidity",
-        "leafTemperature": "fiware:leafTemperature",
-        "leafWetness": "fiware:leafWetness",
-        "location": "fiware:location",
-        "macAddress": "fiware:macAddress",
-        "mnc": "fiware:mnc",
-        "name": "fiware:name",
-        "observedAt": "fiware:observedAt",
-        "osVersion": "fiware:osVersion",
-        "ownedBy": "fiware:ownedBy",
-        "owner": "fiware:owner",
-        "provider": "fiware:provider",
-        "refActivity": "fiware:refActivity",
-        "refDeviceModel": "fiware:refDeviceModel",
-        "refUser": "fiware:refUser",
-        "refUserDevice": "fiware:refUserDevice",
-        "relatedSource": "fiware:relatedSource",
-        "relativeHumidity": "fiware:relativeHumidity",
-        "relativePosition": "fiware:relativePosition",
-        "rssi": "fiware:rssi",
-        "seeAlso": "fiware:seeAlso",
-        "serialNumber": "fiware:serialNumber",
-        "softwareVersion": "fiware:softwareVersion",
-        "soilMoistureEC": "fiware:soilMoistureEC",
-        "soilMoistureVwcLevel1": "fiware:soilMoistureVwcLevel1",
-        "soilMoistureVwcLevel2": "fiware:soilMoistureVwcLevel2",
-        "soilMoistureVwcLevel3": "fiware:soilMoistureVwcLevel3",        "soilSalinity": "fiware:soilSalinity",
-        "soilTemperature": "fiware:soilTemperature",
-        "solarRadiaton": "fiware:solarRadiaton",
-        "source": "fiware:source",
-        "supportedProtocol": "fiware:supportedProtocol",
-        "value": "fiware:value"
+  "@context": {
+    "type": "@type",
+    "id": "@id",
+    "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+    "fiware": "https://uri.fiware.org/ns/data-models#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AgriFarm": "fiware:AgriFarm",
+    "AgriParcel": "fiware:AgriParcel",
+    "AgriParcelRecord": "fiware:AgriParcelRecord",
+    "Devices": "fiware:Devices",
+    "Female": "schema:Female",
+    "Male": "schema:Male",
+    "Person": "schema:Person",
+    "address": "fiware:address",
+    "alternateName": "fiware:alternateName",
+    "area": "fiware:area",
+    "areaServed": "fiware:areaServed",
+    "atmosphericPressure": "fiware:atmosphericPressure",
+    "batteryLevel": {
+      "@id": "fiware:batteryLevel",
+      "@type": "xsd:number"
+    },
+    "belongsTo": {
+      "@id": "fiware:belongsTo",
+      "@type": "@id"
+    },
+    "category": "fiware:category",
+    "configuration": "fiware:configuration",
+    "contactPoint": "fiware:contactPoint",
+    "controlledAsset": "fiware:controlledAsset",
+    "controlledProperty": "fiware:controlledProperty",
+    "cropStatus": "fiware:cropStatus",
+    "dataProvider": "fiware:dataProvider",
+    "dateCreated": "fiware:dateCreated",
+    "dateFirstUsed": "fiware:dateFirstUsed",
+    "dateInstalled": "fiware:dateInstalled",
+    "dateLastCalibration": "fiware:dateLastCalibration",
+    "dateLastValueReported": "fiware:dateLastValueReported",
+    "dateManufactured": "fiware:dateManufactured",
+    "dateModified": "fiware:dateModified",
+    "depth": "fiware:depth",
+    "description": "fiware:description",
+    "deviceState": "fiware:deviceState",
+    "direction": "fiware:direction",
+    "distance": "fiware:distance",
+    "dstAware": "fiware:dstAware",
+    "firmwareVersion": "fiware:firmwareVersion",
+    "hardwareVersion": "fiware:hardwareVersion",
+    "hasAgriCrop": {
+      "@id": "fiware:hasAgriCrop",
+      "@type": "@id"
+    },
+    "hasAgriFarm": {
+      "@id": "fiware:hasAgriFarm",
+      "@type": "@id"
+    },
+    "hasAgriParcel": {
+      "@id": "fiware:hasAgriParcel",
+      "@type": "@id"
+    },
+    "hasAgriParcelChildren": {
+      "@id": "fiware:hasAgriParcelChildren",
+      "@type": "@id"
+    },
+    "hasAgriParcelParent": {
+      "@id": "fiware:hasAgriParcelParent",
+      "@type": "@id"
+    },
+    "hasAgriSoil": {
+      "@id": "fiware:hasAgriSoil",
+      "@type": "@id"
+    },
+    "hasBuilding": {
+      "@id": "fiware:hasBuilding",
+      "@type": "@id"
+    },
+    "hasDevice": {
+      "@id": "fiware:hasDevice",
+      "@type": "@id"
+    },
+    "hasDevices": {
+      "@id": "fiware:hasDevices",
+      "@type": "@id"
+    },
+    "ipAddress": "fiware:ipAddress",
+    "landLocation": "fiware:landLocation",
+    "lastPlantedAt": {
+      "@id": "fiware:lastPlantedAt",
+      "@type": "fiware:DateTime"
+    },
+    "leafRelativeHumidity": "fiware:leafRelativeHumidity",
+    "leafTemperature": "fiware:leafTemperature",
+    "leafWetness": "fiware:leafWetness",
+    "location": "fiware:location",
+    "macAddress": "fiware:macAddress",
+    "mnc": "fiware:mnc",
+    "name": "fiware:name",
+    "observedAt": {
+      "@id": "fiware:observedAt",
+      "@type": "fiware:DateTime"
+    },
+    "osVersion": "fiware:osVersion",
+    "ownedBy": {
+      "@id": "fiware:ownedBy",
+      "@type": "@id"
+    },
+    "owner": "fiware:owner",
+    "provider": "fiware:provider",
+    "refActivity": {
+      "@id": "fiware:refActivity",
+      "@type": "@id"
+    },
+    "refDeviceModel": {
+      "@id": "fiware:refDeviceModel",
+      "@type": "@id"
+    },
+    "refUser": {
+      "@id": "fiware:refUser",
+      "@type": "@id"
+    },
+    "refUserDevice": {
+      "@id": "fiware:refUserDevice",
+      "@type": "@id"
+    },
+    "relatedSource": "fiware:relatedSource",
+    "relativeHumidity": "fiware:relativeHumidity",
+    "relativePosition": "fiware:relativePosition",
+    "rssi": "fiware:rssi",
+    "seeAlso": {
+      "@id": "fiware:seeAlso",
+      "@type": "@id"
+    },
+    "serialNumber": "fiware:serialNumber",
+    "softwareVersion": "fiware:softwareVersion",
+    "soilMoistureEC": "fiware:soilMoistureEC",
+    "soilMoistureVwcLevel1": {
+      "@id": "fiware:soilMoistureVwcLevel1",
+      "@type": "xsd:number"
+    }, 
+    "soilMoistureVwcLevel2": {
+      "@id": "fiware:soilMoistureVwcLevel2",
+      "@type": "xsd:number"
+    },
+    "soilMoistureVwcLevel3": {
+      "@id": "fiware:soilMoistureVwcLevel3",
+      "@type": "xsd:number"
+    },
+    "soilSalinity": "fiware:soilSalinity",
+    "soilTemperature": "fiware:soilTemperature",
+    "solarRadiaton": "fiware:solarRadiaton",
+    "source": "fiware:source",
+    "status":  "fiware:status",
+    "supportedProtocol": "fiware:supportedProtocol",
+    "value": {
+      "@id": "fiware:value",
+      "@type": "xsd:string"
     }
+  },
+  "@graph": [
+    {
+      "@id": "fiware:AgriFarm",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "This entity contains a harmonised description of a generic farm made up of buildings and parcels. This entity is primarily associated with the agricultural vertical and related IoT applications."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "AgriFarm"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "fiware:AgriParcel",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "This entity contains a harmonised description of a generic parcel of land. This entity is primarily associated with the agricultural vertical and related IoT applications."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "AgriParcel"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "fiware:AgriParcelRecord",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "This entity contains a harmonised description of the conditions recorded on a parcel of land. This entity is primarily associated with the agricultural vertical and related IoT applications."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "AgriParcelRecord"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "fiware:Devices",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "An apparatus (hardware + software + firmware) intended to accomplish a particular task (sensing the environment, actuating, etc.)."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Devices"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "fiware:Person",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Information on the context of an anonymized in a given point in time"
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Person"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "fiware:belongsTo",
+      "@type": "ngsi-ld:Relationship",
+      "schema:domainIncludes": [
+        {
+          "@id": "tutorial:AgriParcel"
+        },
+        {
+          "@id": "tutorial:Devices"            
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:AgriFarm"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Farm where the parcel or device is located"
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "belongsTo"
+        }
+      ]
+    },
+    {
+      "@id": "fiware:hasAgriParcel",
+      "@type": "ngsi-ld:Relationship",
+      "schema:domainIncludes": [
+        {
+          "@id": "tutorial:AgriFarm"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:AgriParcel"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Parcels i the farm"
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "hasAgriParcel"
+        }
+      ]
+    },
+    {
+      "@id": "fiware:hasDevice",
+      "@type": "ngsi-ld:Relationship",
+      "schema:domainIncludes": [
+        {
+          "@id": "tutorial:AgriParcel"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Device"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Devices that are in a parcel"
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "hasDevice"
+        }
+      ]
+    },
+    {
+      "@id": "fiware:ownedBy",
+      "@type": "ngsi-ld:Relationship",
+      "schema:domainIncludes": [
+        {
+          "@id": "tutorial:AgriFarm"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Person"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Farm where the parcel is located"
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "belongsTo"
+        }
+      ]
+    }
+  ]
 }
-
