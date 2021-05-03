@@ -109,6 +109,7 @@
     },
     "owner": "fiware:owner",
     "provider": "fiware:provider",
+    "publicVisibility": "fiware:publicVisibility",
     "refActivity": {
       "@id": "fiware:refActivity",
       "@type": "@id"
@@ -152,7 +153,6 @@
     "soilTemperature": "fiware:soilTemperature",
     "solarRadiaton": "fiware:solarRadiaton",
     "source": "fiware:source",
-    "status":  "fiware:status",
     "supportedProtocol": "fiware:supportedProtocol",
     "value": {
       "@id": "fiware:value",
