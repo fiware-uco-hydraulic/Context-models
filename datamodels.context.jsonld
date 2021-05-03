@@ -152,6 +152,7 @@
     "soilTemperature": "fiware:soilTemperature",
     "solarRadiaton": "fiware:solarRadiaton",
     "source": "fiware:source",
+    "status":  "fiware:status",
     "supportedProtocol": "fiware:supportedProtocol",
     "value": {
       "@id": "fiware:value",
@@ -260,6 +261,9 @@
       "schema:domainIncludes": [
         {
           "@id": "tutorial:AgriParcel"
+        },
+        {
+          "@id": "tutorial:Devices"            
         }
       ],
       "schema:rangeIncludes": [
@@ -270,7 +274,7 @@
       "rdfs:comment": [
         {
           "@language": "en",
-          "@value": "Farm where the parcel is located"
+          "@value": "Farm where the parcel or device is located"
         }
       ],
       "rdfs:label": [
